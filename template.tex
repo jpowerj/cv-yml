@@ -325,20 +325,14 @@ New translation of Karl Marx, \textit{Capital, Vol. 1}, forthcoming, Princeton U
 
 \textbf{Discussant:}\vspace{\cvitemsep}
 
-``Real-World Impacts of Political and Legal Texts'', Princeton\hfill May 2017 \\
+``Real-World Impacts of Political and Legal Texts'', Princeton University\hfill May 2017 \\
 
 
 \section{Awards \& Achievements}
 
-Distinction in Quantitative Methods Field Exam, Columbia Political Science Dept. \hfill Jan 2018\vspace{1mm}\\
-Departmental Honors, University of Maryland Department of Computer Science \hfill May 2012\vspace{1mm}\\%
-Departmental Honors, University of Maryland Department of Mathematics \hfill May 2012\vspace{1mm}\\%
-Senior Outstanding Achievement Award (4.0 major GPA), UMD Dept.\ of Econ.\ \hfill May 2012\vspace{1mm}\\%
-2011 Project of the Year, UMD QUEST Honors Program Senior Conference \hfill Dec 2011\vspace{1mm}\\%
-QUEST Business \& Engineering Honors Fellow, Smith Sch.\ of Business \hfill Aug 2009 -- May 2012\vspace{1mm}\\%
-Science, Technology, and Society Scholar, Clark School of Engineering \hfill Aug 2008 -- May 2012\vspace{1mm}\\%
-Dean's List, College of Computer, Mathematical, and Natural Sciences \hfill Aug 2008 -- May 2012\\
-
+[# for award in awards #]
+[-award.name-] \hfill [-award.date-]\vspace{1mm} \\
+[# endfor #]
 
 \section{Technical Skills}
 
@@ -377,27 +371,29 @@ Dean's List, College of Computer, Mathematical, and Natural Sciences \hfill Aug 
 %--------
 % References
 %-------
-\section{References} 
-% Row 1
+\section{References}
 
 \begin{tabularx}{\textwidth}{@{}bb@{}}
-	\textbf{Suresh Naidu} & \textbf{Elliott Ash} \\
-	\textit{Professor of Economics and Public Affairs} & \textit{Assistant Professor of Law, Economics,} \\
-	Columbia University & \textit{and Data Science}, ETH-Z\"{u}rich \\
-	New York, NY, USA & Z\"urich, Switzerland \\
-	\href{mailto:sn2430@columbia.edu}{\texttt{sn2430@columbia.edu}} & \href{mailto:ashe@ethz.ch}{\texttt{ashe@ethz.ch}} \\[2ex]
-	
-	\textbf{Alex Gourevitch} & \textbf{Jon Elster} \\
-	\textit{Associate Professor of Political Science} & \textit{Robert K. Merton Professor of the} \\
-	Brown University & \textit{Social Sciences}, Columbia University \\
-	Providence, RI, USA & New York, NY, USA \\
-	\href{mailto:Alexander_Gourevitch@brown.edu}{\texttt{Alexander\_Gourevitch@brown.edu}} & \href{mailto:je70@columbia.edu}{\texttt{je70@columbia.edu}} \\[2ex]
-	
-	\textbf{Joshua Simon} & \textbf{Naoki Egami} \\
-	\textit{Assistant Professor of Political Science} & \textit{Assistant Professor of Political Science} \\
-	Johns Hopkins University & Columbia University \\
-	Baltimore, MD, USA & New York, NY, USA \\
-	\href{mailto:jsimon38@jhu.edu}{\texttt{jsimon38@jhu.edu}} & \href{mailto:naoki.egami@columbia.edu}{\texttt{naoki.egami@columbia.edu}} \\
+
+[# for reference in references #]
+    % We're filling in each 2, so skip if it's an odd entry
+	[# if loop.index is odd #]
+	    [# set cur_ref = references[loop.index0] #]
+		[# set next_ref = references[(loop.index0 + 1)] #]
+		[# set has_next_ref = not ((loop.index0 + 1) == loop.length) #]
+		% Name
+		\textbf{[-cur_ref.name-]} & [# if has_next_ref #] \textbf{[-next_ref.name-]} [# endif #] \\
+		% Title
+		\textit{[-cur_ref.title-]} & [# if has_next_ref #] \textit{[-next_ref.title-]} [# endif #] \\
+		% (Title line 2, ) Institute
+		[# if cur_ref.title_line2 #] \textit{[-cur_ref.title_line2-]}, [# endif #] [-cur_ref.institute-] & [# if has_next_ref #] [# if next_ref.title_line2 #] \textit{[-next_ref.title_line2-]}, [# endif #][-next_ref.institute-] [# endif #] \\
+		% Location
+		[-cur_ref.loc-] & [# if has_next_ref #][-next_ref.loc-][# endif #] \\
+		% Email
+		\href{mailto:[-cur_ref.email-]}{\texttt{[-cur_ref.email | replace("_","\_")-]}} & [# if has_next_ref #] \href{mailto:[-next_ref.email-]}{\texttt{[-next_ref.email | replace("_","\_")-]}}[# endif #] \\[2ex]
+	[# endif #]
+[# endfor #]
+
 \end{tabularx}
 
 \end{document}
