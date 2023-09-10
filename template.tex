@@ -1,0 +1,403 @@
+% template.tex
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj
+% Website: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+\documentclass[letterpaper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{titlesec}
+\usepackage{marvosym}
+%\usepackage[usenames,dvipsnames]{color}
+%\usepackage{fullpage}
+%\usepackage[showframe,letterpaper,margin=0.5in]{geometry}
+\usepackage[letterpaper,margin=0.5in]{geometry}
+%\usepackage{layout}
+%\usepackage{showframe}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{changepage}
+\usepackage{lastpage}
+\usepackage{relsize}
+\usepackage{tabularx}
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+\usepackage{ragged2e}
+
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+
+\newcommand{\cvitemsep}{2mm}
+\newcommand{\emplitemsep}{3mm}
+
+% Adjust margins
+%\addtolength{\oddsidemargin}{-0.5in}
+%\addtolength{\evensidemargin}{-0.5in}
+%\addtolength{\textwidth}{1in}
+%\addtolength{\topmargin}{-.5in}
+%\addtolength{\textheight}{1.0in}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\footskip}{0pt}
+%\setlength{\headsep}{0pt}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+%\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+	\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+	\item\small{
+		\textbf{#1}{: #2 \vspace{-2pt}}
+	}
+}
+
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-1pt}\item
+	%\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{\small#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt,label={}]}
+	\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+	\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+%\fancyfoot[R]{\thepage}
+%\fancyfoot{}
+%\rfoot{\textit{Page \thepage\ of \pageref*{LastPage}}}
+\fancyfoot[R]{\textit{Page \thepage\ of \pageref*{LastPage}}}
+%\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{\textwidth}
+
+\newcommand{\skfill}{\hfill}
+\newcommand{\rpkg}[1]{#1}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%
+\begin{document}
+%	\layout
+	
+	%----------HEADING-----------------
+	\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+		\textbf{\huge Jeffrey Power Jacobs} & Email: \href{mailto:jjacobs3@cs.stanford.edu}{jjacobs3@cs.stanford.edu} \\ 
+		\url{https://cs.stanford.edu/~jjacobs3} &  202-630-8111 $\mathlarger{\cdot}$ Github: \href{https://github.com/jpowerj/}{jpowerj} \\
+	\end{tabular*}
+
+% Employment
+
+\section{Employment}
+\resumeSubHeadingListStart
+
+\vspace{-1pt}
+[# for employer in appointments.employers #]
+\item
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\textbf{[-employer.name-]} & [-employer.loc-] \\
+	\textit{\small [-employer.position-]} & {\small [-employer.start_date-] -- [-employer.end_date-]} \\
+\end{tabular*}\vspace{-5pt}
+[# endfor #]
+\resumeSubHeadingListEnd
+
+% Education
+
+
+\section{Education}
+\resumeSubHeadingListStart
+
+[# for school in education.schools #]
+
+\vspace{-1pt}\item
+%\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\textbf{[-school.name-]} & [-school.loc-] \\
+    [# for degree in school.degrees #]
+	\textit{\small [-degree.name-]} & {\small [-degree.date-]} \\
+    [# endfor #]
+\end{tabular*}\vspace{-5pt}
+
+[# endfor #]
+
+\resumeSubHeadingListEnd
+
+% Dissertation
+
+
+\section{Dissertation}
+
+\resumeSubHeadingListStart
+
+\vspace{-1pt}\item
+\href{https://academiccommons.columbia.edu/doi/10.7916/k9s3-tq95}{\textbf{``Our Word is Our Weapon''}}: Text-Analyzing Wars of Ideas from the French Revolution to the First Intifada\vspace{-5pt}
+\vspace{-1pt}\item {\small Committee: Suresh Naidu (Chair), Jon Elster, Naoki Egami, Nadia Urbinati, Alexander Gourevitch (Brown University), William Clare Roberts (McGill University)}
+\resumeSubHeadingListEnd
+
+%%% Publications
+
+\section{Peer-Reviewed Publications}
+
+[# for pub in publications #]
+
+[[-loop.index-]]~
+[#- for auth in pub.authors -#]
+[#- if auth == 'Jeff Jacobs' -#]
+    [#- set authformat = '\\textbf{J. Jacobs}' -#]
+[#- else -#]
+    [#- set authformat = auth.split(" ")[0][0] + '. ' + auth.split(" ")[1] -#]
+[#- endif -#]
+[-authformat-][#- if not loop.last -#],~[#- else -#].~[#- endif -#]
+[#- endfor -#]
+``[-pub.name-].''~\textit{[-pub.journal-]}[# if pub.vol_info #], [-pub.vol_info-][# endif #]. [-pub.year-].\vspace{2mm}
+% \url{https://elliottash.com/wp-content/uploads/2020/09/Ash-Jacobs-MacLeod-Naidu-Stammbach.pdf}
+
+[# endfor #]
+
+
+%%% Writings
+
+\section{Other Publications}
+
+[# for pub in writings #]
+[#- for auth in pub.authors -#]
+[#- if auth == 'Jeff Jacobs' -#]
+    [#- set authformat = '\\textbf{J. Jacobs}' -#]
+[#- else -#]
+    [#- set authformat = auth.split(" ")[0][0] + '. ' + auth.split(" ")[1] -#]
+[#- endif -#]
+[-authformat-][#- if not loop.last -#],~[#- else -#].~[#- endif -#]
+[#- endfor -#]
+``[-pub.name-].''~[#- if pub.is_chapter -#]In~[#- endif -#]\textit{[-pub.journal-]}[# if pub.vol_info #], [-pub.vol_info-][# endif #][#- if pub.publisher -#], [-pub.publisher-][#- endif -#]. [-pub.year-].[#- if pub.link -#]~\url{[-pub.link-]}[#- endif -#]\vspace{2mm}
+% \url{https://elliottash.com/wp-content/uploads/2020/09/Ash-Jacobs-MacLeod-Naidu-Stammbach.pdf}
+
+[# endfor #]
+
+
+% Teaching
+\vspace{5mm}
+\noindent\begin{minipage}{\textwidth}
+\section{Teaching Experience}
+
+[# for item in teaching #]
+    [# if item.pdf_include != False #]
+    [#- if not loop.first -#]
+        \noindent\begin{minipage}{\textwidth}
+    [#- endif -#]
+
+        \noindent\textbf{[-item.inst-]}\vspace{2mm}\\
+        [# for course in item.courses #]
+            [-course.dept_code-] [-course.course_num-]: [-course.name-]\hfill{}
+            [#- for term in course.terms -#]
+                [-term-]
+                [#- if not loop.last -#],~[#- endif -#]
+            [#- endfor -#]
+            [#- if loop.last -#]
+                \vspace{2mm} \\
+            [#- else -#]
+                \vspace{1mm}\\
+            [#- endif -#]
+        [# endfor #]
+    \end{minipage}
+    [# endif #]
+[# endfor #]
+
+\textbf{Workshops/Short Courses}\vspace{2mm}
+	
+	\textit{Jain Family Institute Seminar}\hfill New York, NY\vspace{2mm}\\
+	Let's Get Free: A Gentle Introduction to Analytical Political Theory\hfill (Postponed to 2023)\vspace{1mm}\\
+	\-\hspace{8mm}\textit{\small (Postponed due to COVID-19, draft of lecture notes available on \href{https://github.com/jpowerj/lets-get-free}{GitHub})}\vspace{2mm}\\
+
+\textit{Code for Palestine Summer Courses}\hfill West Bank \& Gaza, Occupied Palestinian Territories\vspace{2mm}\\
+Mobile App Development with React Native\hfill Summer 2022\vspace{1mm}\\
+Design Thinking for Mobile App Development\hfill Summer 2019\vspace{1mm}\\
+Web Development with Flask and MySQL \hfill Summer 2018\vspace{1mm}\\
+Mobile App Development with Android Studio \hfill Summer 2017\vspace{2mm}\\
+
+\begin{minipage}{\linewidth}
+\vspace{2mm}\textit{Stanford Splash! Program}\hfill Palo Alto, CA, USA\vspace{2mm}\\
+Game Theory and Mechanism Design \hfill Autumn 2013, 2014\vspace{1mm}\\
+Pledge No Allegiance: America Through A Hip Hop Lens \hfill Autumn 2014\\
+
+\end{minipage}
+
+\section{Previous Employment}
+
+[# for job in employment #]
+
+	\textbf{[-job.employer-]} \hfill{} [-job.loc-]\\%
+	\textsl{\small [-job.position-]} \hfill{} {\small [-job.start_date-] -- [-job.end_date-]}%\vspace{-2mm}
+    \vspace{\emplitemsep}
+
+[# endfor #]
+
+\section{Working Papers}
+
+[# for paper in working_papers #]
+``[-paper.name-]''
+
+[# if paper.desc #]
+\begin{adjustwidth}{1cm}{}
+	\indent {\small [-paper.desc-]}\vspace{\cvitemsep}
+\end{adjustwidth}
+[# endif #]
+[# endfor #]
+
+
+\section{Invited Talks}
+
+[# for talk in talks #]
+\begin{minipage}{\textwidth}
+``[#- if talk.title_pdf -#][-talk.title_pdf-][#- else -#][-talk.title-][#- endif -#]''
+
+\begin{adjustwidth}{1cm}{}
+	{\small [-talk.host-], [-talk.loc-]}\hfill {\small [-talk.date-]}\vspace{3mm}
+\end{adjustwidth}
+\end{minipage}
+[# endfor #]
+
+
+\section{Professional Service}
+
+\textbf{Editorial Boards:}\vspace{\cvitemsep}
+
+New translation of Karl Marx, \textit{Capital, Vol. 1}, forthcoming, Princeton University Press \hfill Fall 2023\vspace{2mm}\\
+
+\textbf{Program Committees:}\vspace{\cvitemsep}
+
+\textbf{ACL}: Annual Meeting of the Association for Computational Linguistics \\
+\begin{adjustwidth}{1cm}{}
+	Main Conference\hfill Jul 2023, Jul 2022, Jul 2020 \\
+	Student Research Workshop\hfill Jul 2023, May 2022, Jul 2020, Jul 2019\vspace{1mm}\\
+\end{adjustwidth}
+\textbf{EACL}: Conference of the European Chapter of the ACL\hfill Sep 2023\vspace{1mm} \\
+\textbf{IC2S2}: International Conference on Computational Social Science\hfill Jul 2023, Jul 2022\vspace{1mm}\\
+\textbf{EMNLP}: Empirical Methods in Natural Language Processing\hfill Sep 2022\vspace{1mm} \\
+\textbf{ACL-IJCNLP}: International Joint Conference on NLP \\
+\begin{adjustwidth}{1cm}{}
+	Student Research Workshop\hfill Nov 2022, Aug 2021, Sep 2020\vspace{1mm}\\
+\end{adjustwidth}
+
+\textbf{NAACL-HLT}: NAACL Human Language Technologies \\
+\begin{adjustwidth}{1cm}{}
+	Main Conference\hfill Jul 2022 \\
+	Student Research Workshop\hfill Jun 2021
+\end{adjustwidth}
+
+\textbf{SSCI}: IEEE Symposium Series on Computational Intelligence\hfill Jun 2013\vspace{2mm}
+
+%ACL-IJCNLP 2021 Student Research Workshop\hfill Aug 2021\vspace{1mm}\\
+%NAACL-HLT Student Research Workshop\hfill Jun 2021\vspace{1mm}\\
+%ACL-IJCNLP 2020 Student Research Workshop\hfill Sep 2020\vspace{1mm}\\
+%ACL\hfill Jul 2020\vspace{1mm}\\
+%ACL 2020 Student Research Workshop\hfill Jul 2020\vspace{1mm}\\
+%ACL 2019 Student Research Workshop\hfill Jul 2019\vspace{1mm} \\
+
+\textbf{Discussant:}\vspace{\cvitemsep}
+
+``Real-World Impacts of Political and Legal Texts'', Princeton\hfill May 2017 \\
+
+
+\section{Awards \& Achievements}
+
+Distinction in Quantitative Methods Field Exam, Columbia Political Science Dept. \hfill Jan 2018\vspace{1mm}\\
+Departmental Honors, University of Maryland Department of Computer Science \hfill May 2012\vspace{1mm}\\%
+Departmental Honors, University of Maryland Department of Mathematics \hfill May 2012\vspace{1mm}\\%
+Senior Outstanding Achievement Award (4.0 major GPA), UMD Dept.\ of Econ.\ \hfill May 2012\vspace{1mm}\\%
+2011 Project of the Year, UMD QUEST Honors Program Senior Conference \hfill Dec 2011\vspace{1mm}\\%
+QUEST Business \& Engineering Honors Fellow, Smith Sch.\ of Business \hfill Aug 2009 -- May 2012\vspace{1mm}\\%
+Science, Technology, and Society Scholar, Clark School of Engineering \hfill Aug 2008 -- May 2012\vspace{1mm}\\%
+Dean's List, College of Computer, Mathematical, and Natural Sciences \hfill Aug 2008 -- May 2012\\
+
+
+\section{Technical Skills}
+
+\textbf{Languages}: Python, R, Stata, JS/TS, HTML/CSS, PHP, Shell Scripting, SQL, MATLAB, Java, C, C++, Ruby\vspace{2mm}\\
+
+\textbf{Frameworks/Packages}:\vspace{1mm}
+\setlength\tabcolsep{0.015\textwidth}
+\noindent\begin{tabularx}{\textwidth}{@{}bb@{}}
+	%\begin{adjustwidth}{1cm}{}
+	\textbf{Data Science}: \skfill Pandas, \skfill Seaborn, \skfill \rpkg{tidyverse}, \skfill \rpkg{ggplot2} & \textbf{Deep} \textbf{Learning}: \skfill Huggingface Transformers, \skfill PyTorch\vspace{0.5mm}\\
+	\textbf{NLP}: \skfill spaCy, \skfill Gensim, \skfill Stanza/CoreNLP, \skfill \rpkg{tidytext} & \textbf{Machine} \textbf{Learning}: \skfill scikit-learn, \skfill \rpkg{e1071}, \skfill DoubleML\vspace{0.5mm}\\
+	\textbf{Network Analysis}: \skfill NetworkX, \skfill nxviz, \skfill Gephi, \skfill \rpkg{igraph} & \textbf{Web Dev}: \skfill Node.js, \skfill React, \skfill D3, \skfill jQuery, \skfill Apache/Nginx\vspace{0.5mm}\\
+	\textbf{Cloud Computing}: GCP, \skfill AWS (EC2, S3, Lambda) & \textbf{Misc}: \skfill Git, \skfill MongoDB, \skfill Qualtrics, \skfill VirtualBox, \hfill CUDA \\
+\end{tabularx}
+
+
+\section{Languages}
+
+%English (Native), Spanish (Working Proficiency; 6-month immersion in Chiapas, Mexico; 3-month immersion in Havana, Cuba), Arabic (Reading Proficiency; Multiple-year immersion in Occupied Palestinian Territories), French (Limited Working Proficiency; 1 year immersion in Paris, France)
+\textbf{[Native]} English \textbf{[Working Proficiency]} Spanish \textbf{[Reading Proficiency]} German, French, Arabic, Russian
+
+%
+%\section{Languages}
+%
+%%English (Native), Spanish (Working Proficiency; 6-month immersion in Chiapas, Mexico; 3-month immersion in Havana, Cuba), Arabic (Reading Proficiency; Multiple-year immersion in Occupied Palestinian Territories), French (Limited Working Proficiency; 1 year immersion in Paris, France)
+%\textbf{Native}: English \\
+%
+%\textbf{Working Proficiency}: Spanish \\
+%
+%\textbf{Reading Proficiency}: German, French, Arabic, Russian
+%
+%%\end{minipage}
+
+\clearpage
+
+%--------
+% References
+%-------
+\section{References} 
+% Row 1
+
+\begin{tabularx}{\textwidth}{@{}bb@{}}
+	\textbf{Suresh Naidu} & \textbf{Elliott Ash} \\
+	\textit{Professor of Economics and Public Affairs} & \textit{Assistant Professor of Law, Economics,} \\
+	Columbia University & \textit{and Data Science}, ETH-Z\"{u}rich \\
+	New York, NY, USA & Z\"urich, Switzerland \\
+	\href{mailto:sn2430@columbia.edu}{\texttt{sn2430@columbia.edu}} & \href{mailto:ashe@ethz.ch}{\texttt{ashe@ethz.ch}} \\[2ex]
+	
+	\textbf{Alex Gourevitch} & \textbf{Jon Elster} \\
+	\textit{Associate Professor of Political Science} & \textit{Robert K. Merton Professor of the} \\
+	Brown University & \textit{Social Sciences}, Columbia University \\
+	Providence, RI, USA & New York, NY, USA \\
+	\href{mailto:Alexander_Gourevitch@brown.edu}{\texttt{Alexander\_Gourevitch@brown.edu}} & \href{mailto:je70@columbia.edu}{\texttt{je70@columbia.edu}} \\[2ex]
+	
+	\textbf{Joshua Simon} & \textbf{Naoki Egami} \\
+	\textit{Assistant Professor of Political Science} & \textit{Assistant Professor of Political Science} \\
+	Johns Hopkins University & Columbia University \\
+	Baltimore, MD, USA & New York, NY, USA \\
+	\href{mailto:jsimon38@jhu.edu}{\texttt{jsimon38@jhu.edu}} & \href{mailto:naoki.egami@columbia.edu}{\texttt{naoki.egami@columbia.edu}} \\
+\end{tabularx}
+
+\end{document}
