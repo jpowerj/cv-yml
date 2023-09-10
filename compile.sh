@@ -5,4 +5,5 @@ pdflatex --shell-escape -synctex=1 -interaction=nonstopmode output.tex
 #$timestamp = Get-Date -UFormat "%Y-%m-%d"
 timestamp=$(date +%Y-%m-%d)
 fname="Jacobs_CV_${timestamp}.pdf"
-cp output.pdf $fname
+mkdir -p outputs
+cp output.pdf "./outputs/${fname}"
